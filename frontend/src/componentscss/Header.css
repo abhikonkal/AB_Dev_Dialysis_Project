@@ -1,0 +1,42 @@
+/* General styles for body */
+
+/* Header section styles */
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(240, 244, 243);
+    padding: 20px 20px 20px 20px;
+    border: 1px solid #010101;
+}
+
+section img {
+    height: 150px;
+}
+
+section h1 {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 30px;
+    margin: 0 20px;
+}
+
+/* Container for navigation links */
+.container {
+    text-align: center;
+    padding: 10px;
+    background-color:aquamarine;
+    justify-items: center;
+    border: 1px solid #ddd;
+}
+
+.container a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
