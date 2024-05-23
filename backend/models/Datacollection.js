@@ -1,0 +1,113 @@
+const mongoose=require('mongoose');
+
+const prescriptionSchema =new mongoose.Schema({
+    DrugName: { type: String },
+    DrugRoute: { type: String },
+    DrugNumberUnit: { type: Number },
+    DrugFrequency: { type: String },
+    DrugDose: { type: Number },
+    DrugStartDate: { type: String },
+});
+
+
+
+const dataCollectionSchema = ({
+    submittedUserId: { type: mongoose.Schema.Types.ObjectId, ref: "logindetails" },
+    name: { type: String },
+    age: { type: Number },
+    crno: { type: Number },
+    gender: { type: String },
+    race: { type: String, default: "Indian" },
+    height: { type: Number },
+    datinithemodia: { type: String },
+    sessiondate: { type: String },
+    primarydisease: { type: String },
+    // laboratory investigation part
+    Hemoglobin: { type: Number },
+    Hematocrit: { type: Number },
+    Plateletcount: { type: Number },
+    Reticulocytecount: { type: Number },
+    Serumtotalprotein: { type: Number },
+    Serumalbumin: { type: Number },
+    ALP: { type: Number },
+    SerumSodium: { type: Number },
+    Serumpotassium: { type: Number },
+    Serumcalcium: { type: Number },
+    Serumphosphate: { type: Number },
+    SerumiPTH: { type: Number },
+    SerumFerritin: { type: Number },
+    SerumIron: { type: Number },
+    SerumTIBC: { type: Number },
+    BNP: { type: Number },
+    CRP: { type: Number },
+    // clinical prescription
+    ClinicalPrescriptions: [prescriptionSchema],
+    // Clinical Evaluation Details
+    Pulmonarycongestion: { type: String },
+    PleuralEffusion: { type: String },
+    Oxygenadminsitration: { type: String },
+    Edema: { type: String },
+    PreDialyticHypotension: { type: String },
+    PreDialyticHypertension: { type: String },
+    // Dialysis Record
+    DialysisSessionKtvAchieved: { type: Number },
+    FrequencyOfDialysis: { type: String },
+    MembraneareaofDialyzer: { type: Number },
+    Fluxofdialyzer: { type: Number },
+    BloodFlowRate: { type: Number },
+    DialysateFlowRate: { type: Number },
+    DialysateSodium: { type: Number },
+    DialysateTemperature: { type: Number },
+    ResidualUrineVolume: { type: Number },
+    InjectableGiven: { type: String },
+    InterdialyticWeightGain: { type: Number },
+    UltrafiltrationAchieved: { type: Number },
+    DurationOfDialysis: { type: Number },
+    UltrafiltrationRate: { type: Number },
+    CardiothoracicRatio: { type: Number },
+    SystolicBPpreDialysis: { type: Number },
+    DiastolicBPpreDialysis: { type: Number },
+    PulseRate: { type: Number },
+    BodyTemp: { type: Number },
+    Oxygensaturation: { type: Number },
+    IntradialyticHypotension: { type: String },
+    Nausea: { type: String },
+    Vomiting: { type: String },
+    Headache: { type: String },
+    MuscleCramps: { type: String },
+    OtherComplications: { type: String },
+    // ECHO Cardiographic Evaluation
+    AorticRootdiameter: { type: Number },
+    IVCdiameter: { type: Number },
+    LAdiameter: { type: Number },
+    LAVi: { type: Number },
+    LVEDD: { type: Number },
+    LVESD: { type: Number },
+    LVEDVi: { type: Number },
+    LVESVi: { type: Number },
+    LVMI: { type: Number },
+    LVOTdiameter: { type: Number },
+    LVEjectionFraction: { type: Number },
+    IVCcollapsibility: { type: Number },
+    RAsurface: { type: Number },
+    RVbasediameter: { type: Number },
+    // Bioimpedence Analysis
+    PreDialyticOverhydration: { type: Number },
+    PostDialyticOverhydration: { type: Number },
+    LeanTissueIndex: { type: Number },
+    FatTissueIndex: { type: Number },
+    Totalbodywater: { type: Number },
+    ExtracellularWater: { type: Number },
+    IntracellularWater: { type: Number },
+    ECWICW: { type: Number },
+    // Ultrasound Evaluation
+    USGBlinescore: { type: Number },
+    Dryweight: { type: Number },
+    VascularAccess: { type: Array},
+    Serostatus: { type: Array },
+
+});
+
+const DataCollection = mongoose.model("datacollection", dataCollectionSchema);
+
+module.exports = DataCollection;

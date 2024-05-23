@@ -26,7 +26,7 @@ const Contact = () => {
                         <textarea id="message" name="message" rows="4" required aria-required="true" aria-label="Your Message"></textarea>
                     </div>
 
-                    <div class="submit-container">
+                    <div className="submit-container">
                         <input type="submit" value="Submit"/>
                     </div>
                 </form>
