@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import '../componentscss/Dataformfilling.css';
+import styles from '../componentscss/Dataformfilling.module.css';
 import Drug from './Drug';
 
 const Dataformfilling = () => {
@@ -175,7 +175,7 @@ const Dataformfilling = () => {
     if (!isAuthorized) {
         return (
             <div>
-                <div className="container">
+                <div className={styles.container}>
                     <p>{error}</p>
                 </div>
             </div>
@@ -187,7 +187,7 @@ const Dataformfilling = () => {
         <div>
             <Header />
             <div>
-                <form id="signinform" onSubmit={handleSubmit}>
+                <form className={styles.signinform} onSubmit={handleSubmit}>
                     <h2>Welcome, Please fill the below form</h2>
 
                     <label htmlFor="name">Name</label>
@@ -208,7 +208,7 @@ const Dataformfilling = () => {
                     </select>
 
                     <br />
-                    <label className="attselect">Race</label>
+                    <label className={styles.attselect}>Race</label>
                     <select name="race" id="race" value={formData.race} onChange={handleChange} required>
                         <option value="N/A" id="N/A">---</option>
                         <option value="Indian" id="Indian">Indian</option>

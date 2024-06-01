@@ -188,11 +188,11 @@ const Admincontrolpanel = () => {
                     </div>
                 </div>
             </div>
-            <div className="link-center-container">
+            <div className={styles.linkcentercontainer}>
                 <Link to={`/dataformfilling/${id}`} >Go to Form-filling</Link>
             </div>
 
-            <div className="link-center-container">
+            <div className={styles.linkcentercontainer}>
                 <Link to={`/userdashboard/${id}`}>Data Dashboard</Link>
             </div>
             <Footer />

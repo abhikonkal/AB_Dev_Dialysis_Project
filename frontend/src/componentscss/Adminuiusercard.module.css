@@ -68,25 +68,49 @@ button {
 }
 
 /* Accept button styling */
-.accept-btn {
+.acceptbtn {
     background-color: #4CAF50;
     color: white;
 }
 
 /* Hover effect for Accept button */
-.accept-btn:hover {
+.acceptbtn:hover {
     background-color: #45a049;
     transform: scale(1.05);
 }
 
 /* Reject button styling */
-.reject-btn {
+.rejectbtn {
     background-color: #f44336;
     color: white;
 }
 
 /* Hover effect for Reject button */
-.reject-btn:hover {
+.rejectbtn:hover {
     background-color: #e53935;
     transform: scale(1.05);
 }
+
+.linkcentercontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Adjust the height as needed */
+    margin-block-end: 21px;
+  }
+  
+  .linkcentercontainer a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.2em; /* Adjust font size as needed */
+    padding: 10px 20px; /* Add padding for better appearance */
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+  }
+  
+  .linkcentercontainer a:hover {
+    background-color: #0056b3; /* Hover background color */
+  }
+  

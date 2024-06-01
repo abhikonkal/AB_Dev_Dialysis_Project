@@ -7,46 +7,46 @@
     border-top: 1px solid #ddd;
 }
 
-.footer-content {
+.footercontent {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.footer-section {
+.footersection {
     flex: 1;
     margin: 20px;
     min-width: 250px;
 }
 
-.footer-section h2 {
+.footersection h2 {
     margin-bottom: 20px;
 }
 
-.footer-section p, .footer-section ul {
+.footersection p, .footer-section ul {
     font-size: 16px;
     line-height: 1.6;
 }
 
-.footer-section ul {
+.footersection ul {
     list-style: none;
     padding: 0;
 }
 
-.footer-section ul li {
+.footersection ul li {
     margin-bottom: 10px;
 }
 
-.footer-section ul li a {
+.footersection ul li a {
     color: #fff;
     text-decoration: none;
 }
 
-.footer-section ul li a:hover {
+.footersection ul li a:hover {
     text-decoration: underline;
 }
 
-.footer-bottom {
+.footerbottom {
     margin-top: 20px;
     border-top: 1px solid #555;
     padding-top: 10px;

@@ -1,17 +1,17 @@
 import React from 'react'
-import "../componentscss/Adminuiusercard.css"
+import styles from "../componentscss/Adminuiusercard.module.css"
 
 const Usercardwithactions = ({ user, onAccept, onReject }) => {
   return (
-      <div className='card'>
-            <div className="top">
-                <h2 className="name">Name:{user.username}</h2>
+      <div className={styles.card}>
+            <div className={styles.top}>
+                <h2 className={styles.name}>Name:{user.username}</h2>
             </div>
-            <div className="bottom">
-                <p className="info">{user.email}</p>
+            <div className={styles.bottom}>
+                <p className={styles.info}>{user.email}</p>
                 <div>
-                    <button onClick={() => onAccept(user._id)} className="accept-btn">Accept</button>
-                    <button onClick={() => onReject(user._id)} className="reject-btn">Reject</button>
+                    <button onClick={() => onAccept(user._id)} className={styles.acceptbtn}>Accept</button>
+                    <button onClick={() => onReject(user._id)} className={styles.rejectbtn}>Reject</button>
                 </div>
             </div>
         </div>

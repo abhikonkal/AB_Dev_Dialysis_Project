@@ -1,11 +1,11 @@
-.view-form-container {
+.viewformcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
   }
   
-  .view-card {
+  .viewcard {
     width: 600px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -15,44 +15,44 @@
     background-color: #fff;
   }
   
-  .view-card-title {
+  .viewcardtitle {
     text-align: left;
     margin-bottom: 16px;
     margin-left: 12rem;
   }
   
-  .view-card-body {
+  .viewcardbody {
     display: flex;
     flex-direction: column; /* Ensure fields are listed vertically */
   }
   
-  .view-form-field {
+  .viewformfield {
     margin-bottom: 16px;
   }
   
-  .view-field h4 {
+  .viewfield h4 {
     margin-bottom: 8px;
     font-size: 18px;
   }
   
-  .view-field p {
+  .viewfield p {
     margin: 0;
     width: 100%; /* Ensure each field takes up the full width of the card */
     margin-left: 5rem;
   }
   
-  .view-nested-object {
+  .viewnestedobject {
     margin-left: 16px;
     border-left: 2px solid #ccc;
     padding-left: 16px;
   }
   
-  .view-nested-array {
+  .viewnestedarray {
     margin-left: 16px;
     padding-left: 16px;
   }
   
-  .view-array-item {
+  .viewarrayitem {
     margin-bottom: 8px;
   }
   

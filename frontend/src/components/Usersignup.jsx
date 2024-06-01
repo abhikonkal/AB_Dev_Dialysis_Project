@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import '../componentscss/Usersignup.css'
+import styles from '../componentscss/Usersignup.module.css'
 import { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
@@ -69,7 +68,7 @@ const Usersignup = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username, password, email, password }),
+            body: JSON.stringify({ username, password, email }),
         })
             .then(response => response.json())
             .then(data => {
@@ -93,32 +92,32 @@ const Usersignup = () => {
     return (
         <div >
             <Header />
-            <div className='parentuserlogin'>
-                <div className="login-card">
-                    <img src="img/kidney.png" alt="Logo" className="logo" />
+            <div className={styles.parentuserlogin}>
+                <div className={styles.logincard}>
+                    <img src="img/kidney.png" alt="Logo" className={styles.logo} />
                     <h2>Sign Up</h2>
                     <form onSubmit={submithandler}>
-                        <div className="form-group">
+                        <div className={styles.formgroup}>
                             <label htmlFor="username">Username</label>
                             <input type="text" id="username" name="username" value={formValues.username} onChange={handleChange} required />
                         </div>
-                        <div className='form-group'>
+                        <div className={styles.formgroup}>
                             <label htmlFor='email'>Email</label>
                             <input type="email" id='email' name="email" value={formValues.email} onChange={handleChange} required />
                         </div>
-                        <div className="form-group">
+                        <div className={styles.formgroup}>
                             <label htmlFor="password">Password</label>
                             <input type="password" id="password" name="password" value={formValues.password} onChange={handleChange} required />
-                            {formErrors.password && <p className="error">{formErrors.password}</p>}
+                            {formErrors.password && <p className={styles.error}>{formErrors.password}</p>}
                         </div>
-                        <div className="form-group">
+                        <div className={styles.formgroup}>
                             <label htmlFor="retypepassword">Re-type Password</label>
                             <input type="password" id="retypepassword" name="retypepassword" value={formValues.retypepassword} onChange={handleChange} required />
-                            {formErrors.retypepassword && <p className="error">{formErrors.retypepassword}</p>}
+                            {formErrors.retypepassword && <p className={styles.error}>{formErrors.retypepassword}</p>}
                         </div>
                         <button type="submit">Sign Up</button>
                     </form>
-                    <div className="additional-links">
+                    <div className={styles.additionallinks}>
                         <a href="#">Forgot Password?</a>
                         <a href="/userlogin">Sign in</a>
                     </div>

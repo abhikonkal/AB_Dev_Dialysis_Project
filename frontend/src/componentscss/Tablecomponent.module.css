@@ -5,35 +5,35 @@
 }
 
 
-.table-container {
+.tablecontainer {
   display: flex;
   justify-content: center;
   padding: 2rem;
 }
 
-.patient-table {
+.patienttable {
   border-collapse: collapse;
   width: 80%;
   margin-top: 20px;
 }
 
-.heading-cell {
+.headingcell {
   background-color: #007bff;
   color: #fff;
   padding: 10px;
   text-align: left;
 }
 
-.patient-table td {
+.patienttable td {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-.even-row {
+.evenrow {
   background-color: #f2f2f2;
 }
 
-.odd-row {
+.oddrow {
   background-color: #e9ecef;
 }
 
@@ -46,22 +46,22 @@
   cursor: pointer;
 }
 
-.view-btn {
+.viewbtn {
   background-color: #28a745;
   color: #fff;
 }
 
-.edit-btn {
+.editbtn {
   background-color: #ffc107;
   color: #fff;
 }
 
-.delete-btn {
+.deletebtn {
   background-color: #dc3545;
   color: #fff;
 }
 
-.btn.add-btn {
+.btn.addbtn {
   background-color: #007bff;
   color: #fff;
 }
@@ -70,7 +70,7 @@
   opacity: 0.8;
 }
 
-.add-link-container {
+.addlinkcontainer {
   display: flex;
   justify-content: center;
   margin-top: 20px;

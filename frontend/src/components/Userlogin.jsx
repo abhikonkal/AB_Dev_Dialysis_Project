@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import '../componentscss/Userlogin.css'
+import styles from '../componentscss/Userlogin.module.css'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -43,22 +42,22 @@ const Userlogin = () => {
     return (
         <div >
             <Header />
-            <div className='parentuserlogin'>
-            <div className="login-card">
-            <img src="img/kidney.png" alt="Logo" className="logo"/>
+            <div className={styles.parentuserlogin}>
+            <div className={styles.logincard}>
+            <img src="img/kidney.png" alt="Logo" className={styles.logo}/>
                 <h2>Login</h2>
                 <form onSubmit={submithandler}>
-                    <div className="form-group">
+                    <div className={styles.formgroup}>
                         <label htmlFor="username">Username</label>
                         <input type="text" id="username" name="username" required/>
                     </div>
-                    <div className="form-group">
+                    <div className={styles.formgroup}>
                         <label hmtlFor="password">Password</label>
                         <input type="password" id="password" name="password" required/>
                     </div>
                     <button type="submit">Login</button>
                 </form>
-                <div className="additional-links">
+                <div className={styles.additionallinks}>
                     <a href="/forgotpassword">Forgot Password?</a>
                     <a href="/signup">Sign Up</a>
                 </div>

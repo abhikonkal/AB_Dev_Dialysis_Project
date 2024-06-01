@@ -1,5 +1,5 @@
 import React from 'react';
-import "../componentscss/Tablecomponent.css";
+import styles from "../componentscss/Tablecomponent.module.css";
 import { Link } from 'react-router-dom';
 
 const Tablecomponent = ({ patients }) => {
@@ -25,29 +25,29 @@ const Tablecomponent = ({ patients }) => {
   // console.log(patients);
 
   return (
-    <div className='parenttable'>
-      <div className="table-container">
-      <table className="patient-table">
+    <div className={styles.parenttable}>
+      <div className={styles.tablecontainer}>
+      <table className={styles.patienttable}>
         <thead>
           <tr>
-            <th className="heading-cell">Name</th>
-            <th className="heading-cell">CrNo</th>
-            <th className="heading-cell">Date of Initial Dialysis</th>
-            <th className="heading-cell">Session Date</th>
-            <th className="heading-cell">Actions</th>
+            <th className={styles.headingcell}>Name</th>
+            <th className={styles.headingcell}>CrNo</th>
+            <th className={styles.headingcell}>Date of Initial Dialysis</th>
+            <th className={styles.headingcell}>Session Date</th>
+            <th className={styles.headingcell}>Actions</th>
           </tr>
         </thead>
         <tbody>
           {patients.map((patient, index) => (
-            <tr key={patient._id} className={index % 2 === 0 ? "even-row" : "odd-row"}>
+            <tr key={patient._id} className={styles.index % 2 === 0 ? styles.evenrow : styles.oddrow}>
               <td>{patient.name}</td>
               <td>{patient.crno}</td>
               <td>{patient.datinithemodia}</td>
               <td>{patient.sessiondate}</td>
               <td>
-                <Link to={`/data/view/${patient._id}`} className="btn view-btn">View</Link>
-                <Link to={`/data/edit/${patient._id}`} className="btn edit-btn">Edit</Link>
-                <Link onClick={() => handleDelete(patient._id)} className="btn delete-btn">Delete</Link>
+                <Link to={`/data/view/${patient._id}`} className={[styles.btn,styles.viewbtn].join(' ')}>View</Link>
+                <Link to={`/data/edit/${patient._id}`} className={[styles.btn,styles.editbtn].join(' ')}>Edit</Link>
+                <Link onClick={() => handleDelete(patient._id)} className={[styles.btn,styles.deletebtn].join(' ')}>Delete</Link>
               </td>
             </tr>
           ))}

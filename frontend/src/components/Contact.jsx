@@ -1,13 +1,16 @@
 import React from 'react'
-import '../componentscss/Contact.css'
+import styles from '../componentscss/Contact.module.css'
 import Header from './Header'
 import Footer from './Footer'
 
 const Contact = () => {
+
+    
+
     return (
         <div>
             <Header />
-            <div className="contact-form">
+            <div className={styles.contactform}>
                 <h1>Contact Us</h1>
                 <form method="post" action="/contact">
 
@@ -26,7 +29,7 @@ const Contact = () => {
                         <textarea id="message" name="message" rows="4" required aria-required="true" aria-label="Your Message"></textarea>
                     </div>
 
-                    <div className="submit-container">
+                    <div className={styles.submitcontainer}>
                         <input type="submit" value="Submit"/>
                     </div>
                 </form>
@@ -36,4 +39,4 @@ const Contact = () => {
     )
 }
 
-export default Contact
+export default Contact;

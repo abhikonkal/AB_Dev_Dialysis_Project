@@ -7,7 +7,7 @@ body {
 }
 
 /* Card container styles */
-.homecard-card-container {
+.homecardcardcontainer {
     display: flex;
     justify-content: center;
     padding: 40px 20px;
@@ -15,7 +15,7 @@ body {
 }
 
 /* Card styles */
-.homecard-card {
+.homecardcard {
     display: flex;
     background-color: #fff;
     border-radius: 8px ;
@@ -27,13 +27,13 @@ body {
 }
 
 /* Hover effect on card */
-.homecard-card:hover {
+.homecardcard:hover {
     transform: scale(1.homecard-05);
     box-shadow: 0 16px 20px rgba(0, 0, 0, 0.homecard-2);
 }
 
 /* Card image styles */
-.homecard-card-img {
+.homecardcardimg {
     width: 250px;
     height: auto;
     object-fit: cover;
@@ -41,20 +41,20 @@ body {
 }
 
 /* Card content styles */
-.homecard-card-content {
+.homecardcardcontent {
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.homecard-card-content h2 {
+.homecardcardcontent h2 {
     margin: 0;
     font-size: 24px;
     color: #333;
 }
 
-.homecard-card-content p {
+.homecardcardcontent p {
     font-size: 16px;
     color: #555;
     line-height: 1.homecard-6;

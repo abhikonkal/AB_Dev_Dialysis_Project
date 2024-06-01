@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import '../componentscss/ViewDataform.css';
+import styles from '../componentscss/ViewDataform.module.css';
 
 
 const ViewDataform = () => {
@@ -31,7 +31,7 @@ const ViewDataform = () => {
         if (typeof value === 'object' && !Array.isArray(value)) {
             if (value === null) {
                 return (
-                    <div className="view-field" key={key}>
+                    <div className={styles.viewfield} key={key}>
                         <p><strong>{key}:</strong> null</p>
                     </div>
                 );
@@ -39,9 +39,9 @@ const ViewDataform = () => {
             return (
                 <div key={key}>
                     <h4>{key}:</h4>
-                    <div className="view-nested-object">
+                    <div className={styles.viewnestedobject}>
                         {Object.entries(value).map(([innerKey, innerValue]) => (
-                            <div className="view-nested-field" key={innerKey}>
+                            <div className={styles.viewnestedfield} key={innerKey}>
                                 {renderField(innerKey, innerValue)}
                             </div>
                         ))}
@@ -50,13 +50,13 @@ const ViewDataform = () => {
             );
         } else if (Array.isArray(value)) {
             return (
-                <div className="view-nested-array" key={key}>
+                <div className={styles.viewnestedarray} key={key}>
                     <h4>{key}:</h4>
                     {value.map((item, index) => (
-                        <div className="view-array-item" key={`${key}-${index}`}>
+                        <div className={styles.viewarrayitem} key={`${key}-${index}`}>
                             {typeof item === 'object' && item !== null ? (
                                 Object.entries(item).map(([itemKey, itemValue]) => (
-                                    <div key={`${itemKey}-${index}`} className="view-nested-field">
+                                    <div key={`${itemKey}-${index}`} className={styles.viewnestedfield}>
                                         {renderField(itemKey, itemValue)}
                                     </div>
                                 ))
@@ -69,7 +69,7 @@ const ViewDataform = () => {
             );
         } else {
             return (
-                <div className="view-field" key={key}>
+                <div className={styles.viewfield} key={key}>
                     <p><strong>{key}:</strong> {value !== null && value !== undefined ? value.toString() : 'null'}</p>
                 </div>
             );
@@ -79,12 +79,12 @@ const ViewDataform = () => {
     return (
         <div>
             <Header />
-            <div className="view-card-container">
-                <div className="view-card">
-                    <div className="view-card-body">
-                    <h2 className="view-card-title">View Patient Details</h2>
+            <div className={styles.viewcardcontainer}>
+                <div className={styles.viewcard}>
+                    <div className={styles.viewcardbody}>
+                    <h2 className={styles.viewcardtitle}>View Patient Details</h2>
                         {Object.entries(data).map(([key, value]) => (
-                            <div key={key} className="view-form-field">
+                            <div key={key} className={styles.viewformfield}>
                                 {renderField(key, value)}
                             </div>
                         ))}

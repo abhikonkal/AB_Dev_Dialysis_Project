@@ -1,4 +1,4 @@
-.link-center-container {
+.linkcentercontainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     margin-block-end: 21px;
   }
   
-  .link-center-container a {
+  .linkcentercontainer a {
     text-decoration: none;
     color: inherit;
     font-size: 1.2em; /* Adjust font size as needed */
@@ -17,7 +17,7 @@
     transition: background-color 0.3s ease;
   }
   
-  .link-center-container a:hover {
+  .linkcentercontainer a:hover {
     background-color: #0056b3; /* Hover background color */
   }
   

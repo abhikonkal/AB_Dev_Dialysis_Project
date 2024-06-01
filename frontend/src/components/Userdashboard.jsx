@@ -4,7 +4,7 @@ import Footer from './Footer';
 import { useParams } from 'react-router-dom';
 import Tablecomponent from './Tablecomponent';
 import { Link } from 'react-router-dom';
-import '../componentscss/Userdashboard.css';
+import styles from '../componentscss/Userdashboard.module.css';
 
 const Userdashboard = () => {
   const [patients, setPatients] = useState([]);
@@ -45,7 +45,7 @@ const Userdashboard = () => {
     <div>
       <Header />
       <Tablecomponent patients={patients} />
-      <div className="link-center-container">
+      <div className={styles.linkcentercontainer}>
           <Link to={`/dataformfilling/${id}`} >Go to Form-filling</Link>
         </div>
       <Footer />

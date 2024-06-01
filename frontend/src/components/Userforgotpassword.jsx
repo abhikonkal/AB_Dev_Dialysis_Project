@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import '../componentscss/Userlogin.css'
+import styles from '../componentscss/Userlogin.module.css'
 import Header from './Header'
 import Footer from './Footer'
 
@@ -37,22 +36,22 @@ const Userforgotpassword = () => {
     return (
         <div >
             <Header />
-            <div className='parentuserlogin'>
-            <div className="login-card">
-            <img src="img/kidney.png" alt="Logo" className="logo"/>
+            <div className={styles.parentuserlogin}>
+            <div className={styles.logincard}>
+            <img src="img/kidney.png" alt="Logo" className={styles.logo}/>
                 <h2>Forgot Password</h2>
                 <form onSubmit={submithandler}>
-                    <div className="form-group">
+                    <div className={styles.formgroup}>
                         <label htmlFor="email">Email</label>
                         <input type="text" id="email" name="email" required/>
                     </div>
-                    <div className="form-group">
+                    <div className={styles.formgroup}>
                         <p>An email to change your password will be sent if the given email is registered!!</p>
                         <p><strong>So Please ensure the email is correct.</strong></p>
                     </div>
                     <button type="submit">Send</button>
                 </form>
-                <div className="additional-links">
+                <div className={styles.additionallinks}>
                     <a href="/userlogin">Login</a>
                     <a href="/signup">Sign Up</a>
                 </div>

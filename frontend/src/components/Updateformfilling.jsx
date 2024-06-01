@@ -3,13 +3,13 @@ import Header from './Header';
 import Footer from './Footer';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import '../componentscss/ViewDataform.css';
+import styles from '../componentscss/Dataformfilling.module.css';
 import Drug from './Drug';
 
 const Updateformfilling = () => {
 
-    const [isAuthorized, setIsAuthorized] = useState(false);
-    const [error, setError] = useState('');
+    // const [isAuthorized, setIsAuthorized] = useState(false);
+    // const [error, setError] = useState('');
     const { id } = useParams();
     const [formData, setFormData] = useState({
         submittedUserId: id,
@@ -175,7 +175,7 @@ const Updateformfilling = () => {
     // if (!isAuthorized) {
     //     return (
     //         <div>
-    //             <div className="container">
+    //             <div className={styles.container">
     //                 <p>{error}</p>
     //             </div>
     //         </div>
@@ -187,7 +187,7 @@ const Updateformfilling = () => {
         <div>
             <Header />
             <div>
-                <form id="signinform" onSubmit={handleSubmit}>
+                <form className={styles.signinform} onSubmit={handleSubmit}>
                     <h2>Welcome, Please fill the below form</h2>
 
                     <label htmlFor="name">Name</label>
@@ -208,7 +208,7 @@ const Updateformfilling = () => {
                     </select>
 
                     <br />
-                    <label className="attselect">Race</label>
+                    <label className={styles.attselect}>Race</label>
                     <select name="race" id="race" value={formData.race} onChange={handleChange} required>
                         <option value="N/A" id="N/A">---</option>
                         <option value="Indian" id="Indian">Indian</option>
@@ -292,8 +292,9 @@ const Updateformfilling = () => {
                     {[...Array(numDrugs)].map((_, index) => ( // Render Drug components based on numDrugs
                         <Drug key={index} formData={formData} setFormData={setFormData} index={index} count={numDrugs - 1} />
                     ))}
-                    <button onClick={handleAddDrug}>Add Drug</button>
-
+                    <div className={styles.adddrugbtn}>
+                        <button onClick={handleAddDrug}>Add Drug</button>
+                    </div>
 
                     <h2>Clinical EValuation Details</h2>
                     <label htmlFor="Pulmonarycongestion">Pulmonary congestion</label>
@@ -548,8 +549,10 @@ const Updateformfilling = () => {
                         <option value="" disabled selected>---</option>
                         <option value="Yes" id="Yes">Yes</option>
                     </select>
+                    <div className={styles.submitbutton}>
+                        <button type="submit">Submit</button>
+                    </div>
 
-                    <button type="submit">Submit</button>
                 </form>
             </div>
             <Footer />

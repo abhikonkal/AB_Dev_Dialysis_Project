@@ -1,5 +1,5 @@
 import React from 'react'
-import '../componentscss/Header.css'
+import styles from '../componentscss/Header.module.css'
 
 const Header = () => {
     return (
@@ -9,7 +9,7 @@ const Header = () => {
                     <h1> Hemodialysis</h1>
                     <img src="/img/VNIT_logo.jpeg" alt="VNIT logo" height="100px" id="vnitlogo"/>
             </section>
-            <div className="container">
+            <div className={styles.container}>
                 <a href="/">Home</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact Us</a>

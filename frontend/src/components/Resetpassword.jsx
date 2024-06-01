@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { useState } from 'react'
-import "../componentscss/Resetpassword.css"
+import styles from "../componentscss/Resetpassword.module.css"
 
 
 
@@ -90,24 +90,24 @@ const Resetpassword = () => {
     return (
         <div >
             <Header />
-            <div className='reset-parentuserlogin'>
-                <div className="reset-login-card">
-                    <img src="/img/kidney.png" alt="Logo" className="reset-logo" />
+            <div className={styles.resetparentuserlogin}>
+                <div className={styles.resetlogincard}>
+                    <img src="/img/kidney.png" alt="Logo" className={styles.resetlogo} />
                     <h2>Reset Password</h2>
                     <form onSubmit={submithandler}>
-                        <div className="reset-form-group">
+                        <div className={styles.resetformgroup}>
                             <label htmlFor="password">New Password</label>
                             <input type="password" id="password" name="password" value={formValues.password} onChange={handleChange} required />
-                            {formErrors.password && <p className="reset-error">{formErrors.password}</p>}
+                            {formErrors.password && <p className={styles.reseterror}>{formErrors.password}</p>}
                         </div>
-                        <div className="reset-form-group">
+                        <div className={styles.resetformgroup}>
                             <label htmlFor="retypepassword">Re-type New Password</label>
                             <input type="password" id="retypepassword" name="retypepassword" value={formValues.retypepassword} onChange={handleChange} required />
-                            {formErrors.retypepassword && <p className="reset-error">{formErrors.retypepassword}</p>}
+                            {formErrors.retypepassword && <p className={styles.reseterror}>{formErrors.retypepassword}</p>}
                         </div>
                         <button type="submit">Save Password</button>
                     </form>
-                    <div className="reset-additional-links">
+                    <div className={styles.resetadditionallinks}>
                         <a href="/signup">Sign up</a>
                         <a href="/userlogin">Login</a>
                     </div>

@@ -1,5 +1,5 @@
 /* Style the form container */
-#signinform {
+.signinform {
     max-width: 600px;
     margin: 2rem auto;
     padding: 20px;
@@ -46,5 +46,18 @@
   /* Optional: Style for select with multiple options */
   select[multiple] {
     height: auto;
+  }
+
+  .submitbutton
+  {
+    justify-content: center;
+    margin-left: 36%;
+  }
+
+  .adddrugbtn
+  {
+    justify-content: center;
+    margin-left: 36%;
+    width:50%;
   }
   

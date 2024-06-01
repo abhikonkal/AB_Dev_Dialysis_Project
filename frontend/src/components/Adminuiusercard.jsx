@@ -6,6 +6,7 @@ import Footer from './Footer'
 import Usercardwithactions from './Usercardwithactions'
 import Homedatacard from './homecard'
 import { Link } from 'react-router-dom'
+import styles from "../componentscss/Adminuiusercard.module.css"
 
 const Adminuiusercard = () => {
     const [users, setUsers] = useState([]);
@@ -41,7 +42,7 @@ const Adminuiusercard = () => {
     return (
         <div>
         <Header />
-        <div className='adminuibody'>
+        <div className={styles.adminuibody}>
         {users.length > 0 ? (
                     users.map(user => (
                         <Usercardwithactions
@@ -55,8 +56,8 @@ const Adminuiusercard = () => {
                     <Homedatacard title="No Users Found" midcontent="No New Users Requested at this point." endcontent="Please check back later!!!" />
                 )}
             </div>
-            <div className="link-center-container">
-          <Link to={`/admincontrolpanel/${id}`} >Go control Panel</Link>
+            <div className={styles.linkcentercontainer}>
+            <Link to={`/admincontrolpanel/${id}`} >Go control Panel</Link>
         </div>
         <Footer />
         </div>
