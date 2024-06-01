@@ -1,0 +1,78 @@
+.parentuserlogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    margin: 100px;
+    font-family: Arial, sans-serif;
+}
+
+
+.login-card {
+    background-color: #fff;
+    padding: 7em;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px 10px rgb(7 7 7 / 20%);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .login-card .logo {
+    width: 80px;  /* Adjust the width as needed */
+    margin-bottom: 1em;
+  }
+  
+  .login-card h2 {
+    margin-bottom: 1em;
+  }
+  
+  .form-group {
+    margin-bottom: 1em;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.75em;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .additional-links {
+    margin-top: 1em;
+  }
+  
+  .additional-links a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    margin-top: 0.5em;
+  }
+  
+  .additional-links a:hover {
+    text-decoration: underline;
+  }

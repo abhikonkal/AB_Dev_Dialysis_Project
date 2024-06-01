@@ -25,7 +25,7 @@ router.get("/:id",(req,res)=>{
 router.post("/:id",(req,res)=>{
     const id=req.params.id;
     const data=req.body;
-    console.log(data);
+    console.log("kop",data);
     Login.find({_id:id}).then((found)=>{
         if(found){
             const newdata=new DataCollection(data);

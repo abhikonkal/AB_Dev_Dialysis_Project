@@ -7,7 +7,7 @@ body {
 }
 
 /* Card container styles */
-.card-container {
+.homecard-card-container {
     display: flex;
     justify-content: center;
     padding: 40px 20px;
@@ -15,25 +15,25 @@ body {
 }
 
 /* Card styles */
-.card {
+.homecard-card {
     display: flex;
     background-color: #fff;
     border-radius: 8px ;
-    box-shadow: 0 8px 16px rgba(2, 2, 2, 0.1);
+    box-shadow: 0 8px 16px rgba(2, 2, 2, 0.homecard-1);
     overflow: hidden;
     max-width: 800px;
     margin: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.homecard-3s ease, box-shadow 0.homecard-3s ease;
 }
 
 /* Hover effect on card */
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.2);
+.homecard-card:hover {
+    transform: scale(1.homecard-05);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.homecard-2);
 }
 
 /* Card image styles */
-.card-img {
+.homecard-card-img {
     width: 250px;
     height: auto;
     object-fit: cover;
@@ -41,22 +41,22 @@ body {
 }
 
 /* Card content styles */
-.card-content {
+.homecard-card-content {
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.card-content h2 {
+.homecard-card-content h2 {
     margin: 0;
     font-size: 24px;
     color: #333;
 }
 
-.card-content p {
+.homecard-card-content p {
     font-size: 16px;
     color: #555;
-    line-height: 1.6;
+    line-height: 1.homecard-6;
     margin: 10px 0;
 }

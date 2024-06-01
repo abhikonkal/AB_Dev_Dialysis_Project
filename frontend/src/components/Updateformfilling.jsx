@@ -3,10 +3,13 @@ import Header from './Header';
 import Footer from './Footer';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import '../componentscss/Dataformfilling.css';
+import '../componentscss/ViewDataform.css';
 import Drug from './Drug';
 
-const Dataformfilling = () => {
+const Updateformfilling = () => {
+
+    const [isAuthorized, setIsAuthorized] = useState(false);
+    const [error, setError] = useState('');
     const { id } = useParams();
     const [formData, setFormData] = useState({
         submittedUserId: id,
@@ -102,31 +105,26 @@ const Dataformfilling = () => {
         VascularAccess: [],
         Serostatus: []
     });
+    const [numDrugs, setNumDrugs] = useState(0); // State to keep track of the number of drugs
 
-
-    const [isAuthorized, setIsAuthorized] = useState(false);
-    const [error, setError] = useState('');
 
     useEffect(() => {
-        const fetchPermission = async () => {
-            try {
-                const response = await fetch(`http://localhost:5000/dataformfilling/${id}`);
-                if (response.status === 200) {
-                    setIsAuthorized(true);
-                } else {
-                    setIsAuthorized(false);
-                    setError('You do not have permission to access this form.');
-                }
-            } catch (error) {
-                setIsAuthorized(false);
-                setError('Error checking permissions.');
-            }
-        };
-        fetchPermission();
+        fetch(`http://localhost:5000/data/view/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                // setData(data.data[0]);
+                setFormData({ ...data.data[0] });
+                setNumDrugs(data.data[0].ClinicalPrescriptions.length);
+
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
     }, [id]);
 
-    const [numDrugs, setNumDrugs] = useState(1); // State to keep track of the number of drugs
-    
+    // console.log("hform", formData);
+
+
     const handleAddDrug = () => {
         setNumDrugs(numDrugs + 1); // Increment the number of drugs
     };
@@ -150,19 +148,21 @@ const Dataformfilling = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // console.log("Printing gathered data");
         // console.log(formData)
         try {
-            const response = await fetch(`http://localhost:5000/dataformfilling/${id}`, {
+            const response = await fetch(`http://localhost:5000/data/update/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(formData)
             });
-            const res=await response.json();
+            const res = await response.json();
+            console.log(res);
             if (res.statuscode === 200) {
                 // Handle successful submission
-                window.location.href = `/userdashboard/${id}`;
+                window.location.href = `/userdashboard/${formData.submittedUserId}`;
             } else {
                 // Handle submission error
                 console.error('Error submitting form');
@@ -172,15 +172,15 @@ const Dataformfilling = () => {
         }
     };
 
-    if (!isAuthorized) {
-        return (
-            <div>
-                <div className="container">
-                    <p>{error}</p>
-                </div>
-            </div>
-        );
-    }
+    // if (!isAuthorized) {
+    //     return (
+    //         <div>
+    //             <div className="container">
+    //                 <p>{error}</p>
+    //             </div>
+    //         </div>
+    //     );
+    // }
 
 
     return (
@@ -290,7 +290,7 @@ const Dataformfilling = () => {
 
                     <h2>Clinical prescription</h2>
                     {[...Array(numDrugs)].map((_, index) => ( // Render Drug components based on numDrugs
-                        <Drug key={index} formData={formData} setFormData={setFormData} index={index} count={numDrugs-1}/>
+                        <Drug key={index} formData={formData} setFormData={setFormData} index={index} count={numDrugs - 1} />
                     ))}
                     <button onClick={handleAddDrug}>Add Drug</button>
 
@@ -399,7 +399,7 @@ const Dataformfilling = () => {
                     <label htmlFor="SystolicBPpreDialysis">Systolic BP pre-dialysis</label>
                     <input type="text" name="SystolicBPpreDialysis" id="SystolicBPpreDialysis" value={formData.SystolicBPpreDialysis} onChange={handleChange} />
 
-                    <label htmlFor="DiastolicBPpreDialysis">Diastolic BP pre-dialysis</label>
+                    <label htmlFor="DiastolicBPpreDialysis">Distolic BP pre-dialysis</label>
                     <input type="text" name="DiastolicBPpreDialysis" id="DiastolicBPpreDialysis" value={formData.DiastolicBPpreDialysis} onChange={handleChange} />
 
                     <label htmlFor="PulseRate">Pulse rate</label>
@@ -542,6 +542,13 @@ const Dataformfilling = () => {
                         <option value="HIV" id="HIV">HIV</option>
                     </select>
 
+                    <h2>Final select!!Please select Yes after completing all your updates</h2>
+                    <label htmlFor="finalselect">finalselect</label>
+                    <select name="finalselect" id="finalselect" required>
+                        <option value="" disabled selected>---</option>
+                        <option value="Yes" id="Yes">Yes</option>
+                    </select>
+
                     <button type="submit">Submit</button>
                 </form>
             </div>
@@ -550,4 +557,4 @@ const Dataformfilling = () => {
     );
 }
 
-export default Dataformfilling;
+export default Updateformfilling;

@@ -20,7 +20,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-section contact">
                     <h2>Contact Us</h2>
-                    <p>Email: info@hospital.com</p>
+                    <p>Email: vnitnagpuraiims@gmail.com</p>
                     <p>Phone: +123 456 7890</p>
                 </div>
             </div>

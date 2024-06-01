@@ -4,19 +4,18 @@ import '../componentscss/Userlogin.css'
 import Header from './Header'
 import Footer from './Footer'
 
-const Userlogin = () => {
+const Userforgotpassword = () => {
 
     function submithandler(e){
         e.preventDefault();
-        const username = e.target.username.value;
-        const password = e.target.password.value;
-        console.log("Sending")
-        fetch('http://localhost:5000/userlogin', {
+        const email = e.target.email.value;
+        console.log("Sending");
+        fetch(`http://localhost:5000/forgotpassword/${email}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({username, password}),
+            body: JSON.stringify({email}),
         })
         .then(response => response.json())
         .then(data => {
@@ -24,12 +23,7 @@ const Userlogin = () => {
             alert(data.message);
             if(data.statuscode === 200){
                 // alert('Login Successful');
-                if(data.status === 'admin'){
-                    const path = '/adminlogin/'+data.userid;
-                    window.location.href = 'http://localhost:3000'+path;
-                    return;
-                }
-                const path = '/userdashboard/'+data.userid;
+                const path = 'forgotpassword-waiting';
                 window.location.href = 'http://localhost:3000'+path;
             }else{
                 alert('Login Failed');
@@ -46,20 +40,20 @@ const Userlogin = () => {
             <div className='parentuserlogin'>
             <div className="login-card">
             <img src="img/kidney.png" alt="Logo" className="logo"/>
-                <h2>Login</h2>
+                <h2>Forgot Password</h2>
                 <form onSubmit={submithandler}>
                     <div className="form-group">
-                        <label htmlFor="username">Username</label>
-                        <input type="text" id="username" name="username" required/>
+                        <label htmlFor="email">Email</label>
+                        <input type="text" id="email" name="email" required/>
                     </div>
                     <div className="form-group">
-                        <label hmtlFor="password">Password</label>
-                        <input type="password" id="password" name="password" required/>
+                        <p>An email to change your password will be sent if the given email is registered!!</p>
+                        <p><strong>So Please ensure the email is correct.</strong></p>
                     </div>
-                    <button type="submit">Login</button>
+                    <button type="submit">Send</button>
                 </form>
                 <div className="additional-links">
-                    <a href="/forgotpassword">Forgot Password?</a>
+                    <a href="/userlogin">Login</a>
                     <a href="/signup">Sign Up</a>
                 </div>
             </div>
@@ -69,4 +63,4 @@ const Userlogin = () => {
     )
 }
 
-export default Userlogin
+export default Userforgotpassword;
