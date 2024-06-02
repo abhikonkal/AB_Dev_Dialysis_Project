@@ -25,7 +25,7 @@ function App() {
         <Route path="/userlogin" element={<Userlogin />} />
         <Route path="/forgotpassword" element={<Userforgotpassword />} />
         <Route path="/forgotpassword-waiting" element={<Mailsentmsg/>}/>
-        <Route path="/resetpassword/:id" element={<Resetpassword/>}/>
+        <Route path="/resetpassword/:token/:email" element={<Resetpassword/>}/>
         <Route path="/signup" element={<Usersignup />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/userdashboard/:id" element={<Userdashboard/>} />

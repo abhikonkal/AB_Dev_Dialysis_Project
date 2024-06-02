@@ -17,6 +17,8 @@ const Datadelete=require("./routes/datadelete");
 const Forgotpassword=require("./routes/forgotpassword");
 const Adminuiusers=require("./routes/adminuiusers");
 const Admincontrolpanel=require("./routes/admincontrolpanel");
+const Contact=require("./routes/contactform");
+const Resetpassword=require("./routes/resetpassword");
 
 const app = express()
 app.use(bodyparser.json())
@@ -48,7 +50,8 @@ app.use("/data/update",Dataupdate);
 app.use("/data/delete",Datadelete);
 app.use("/adminuiusers",Adminuiusers);
 app.use("/admincontrolpanel",Admincontrolpanel);
-
+app.use("/contact",Contact);
+app.use("/resetpassword",Resetpassword);
 
 //demoplay
 const birds = require('./routes/bird')

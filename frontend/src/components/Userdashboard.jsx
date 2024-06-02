@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Tablecomponent from './Tablecomponent';
 import { Link } from 'react-router-dom';
 import styles from '../componentscss/Userdashboard.module.css';
+import {SERVER_PATH,CLIENT_PATH} from '../paths/path';
 
 const Userdashboard = () => {
   const [patients, setPatients] = useState([]);
@@ -14,7 +15,7 @@ const Userdashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/userdashboard/${id}`, {
+        const response = await fetch(`${SERVER_PATH}/userdashboard/${id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

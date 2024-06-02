@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from '../componentscss/Dataformfilling.module.css';
 import Drug from './Drug';
+import {SERVER_PATH} from '../paths/path';
 
 const Updateformfilling = () => {
 
@@ -109,7 +110,7 @@ const Updateformfilling = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/data/view/${id}`)
+        fetch(`${SERVER_PATH}/data/view/${id}`)
             .then(response => response.json())
             .then(data => {
                 // setData(data.data[0]);
@@ -151,7 +152,7 @@ const Updateformfilling = () => {
         // console.log("Printing gathered data");
         // console.log(formData)
         try {
-            const response = await fetch(`http://localhost:5000/data/update/${id}`, {
+            const response = await fetch(`${SERVER_PATH}/data/update/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

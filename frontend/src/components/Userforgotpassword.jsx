@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../componentscss/Userlogin.module.css'
 import Header from './Header'
 import Footer from './Footer'
+import {SERVER_PATH,CLIENT_PATH} from '../paths/path';
 
 const Userforgotpassword = () => {
 
@@ -9,7 +10,7 @@ const Userforgotpassword = () => {
         e.preventDefault();
         const email = e.target.email.value;
         console.log("Sending");
-        fetch(`http://localhost:5000/forgotpassword/${email}`, {
+        fetch(`${SERVER_PATH}/forgotpassword/${email}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,8 +23,8 @@ const Userforgotpassword = () => {
             alert(data.message);
             if(data.statuscode === 200){
                 // alert('Login Successful');
-                const path = 'forgotpassword-waiting';
-                window.location.href = 'http://localhost:3000'+path;
+                const path = '/forgotpassword-waiting';
+                window.location.href = `${CLIENT_PATH}`+path;
             }else{
                 alert('Login Failed');
             }

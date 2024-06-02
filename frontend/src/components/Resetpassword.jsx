@@ -3,11 +3,13 @@ import Header from './Header'
 import Footer from './Footer'
 import { useState } from 'react'
 import styles from "../componentscss/Resetpassword.module.css"
-
-
+import {SERVER_PATH,CLIENT_PATH} from '../paths/path';
+import { useParams } from 'react-router-dom'
 
 const Resetpassword = () => {
 
+    const {token,email}=useParams();
+    
     const [formValues, setFormValues] = useState({
         password: '',
         retypepassword: '',
@@ -61,20 +63,20 @@ const Resetpassword = () => {
         console.log("Sending")
         if(flag===0){
         console.log(password);
-        fetch('http://localhost:5000/usersignup', {
+        fetch(`${SERVER_PATH}/resetpassword/${token}/${email}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({  password }),
+            body: JSON.stringify({ password }),
         })
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
                 if (data.statuscode === 200) {
                     alert('Signup Successful');
-                    const path = '/userlogin/';
-                    window.location.href = 'http://localhost:3000' + path;
+                    const path = '/userlogin';
+                    window.location.href = `${CLIENT_PATH}` + path;
                 } else {
                     alert('Signup Failed');
                 }

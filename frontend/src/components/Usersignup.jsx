@@ -3,6 +3,7 @@ import styles from '../componentscss/Usersignup.module.css'
 import { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import {SERVER_PATH,CLIENT_PATH} from '../paths/path';
 
 const Usersignup = () => {
 
@@ -63,7 +64,7 @@ const Usersignup = () => {
         console.log("Sending")
         if(flag===0){
             console.log(username,password,email);
-        fetch('http://localhost:5000/usersignup', {
+        fetch(`${SERVER_PATH}/usersignup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -76,8 +77,12 @@ const Usersignup = () => {
                 if (data.statuscode === 200) {
                     alert('Signup Successful');
                     const path = '/userlogin/';
-                    window.location.href = 'http://localhost:3000' + path;
-                } else {
+                    window.location.href = `${CLIENT_PATH}` + path;
+                } 
+                else if (data.statuscode === 201) {
+                    alert('User already exists,please use differnt mail!!');
+                }
+                else {
                     alert('Signup Failed');
                 }
             })
@@ -118,7 +123,7 @@ const Usersignup = () => {
                         <button type="submit">Sign Up</button>
                     </form>
                     <div className={styles.additionallinks}>
-                        <a href="#">Forgot Password?</a>
+                        <a href="/forgotpassword">Forgot Password?</a>
                         <a href="/userlogin">Sign in</a>
                     </div>
                 </div>

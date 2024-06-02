@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../componentscss/Userlogin.module.css'
 import Header from './Header'
 import Footer from './Footer'
+import {SERVER_PATH,CLIENT_PATH} from '../paths/path';
 
 const Userlogin = () => {
 
@@ -10,7 +11,7 @@ const Userlogin = () => {
         const username = e.target.username.value;
         const password = e.target.password.value;
         console.log("Sending")
-        fetch('http://localhost:5000/userlogin', {
+        fetch(`${SERVER_PATH}/userlogin`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,11 +26,11 @@ const Userlogin = () => {
                 // alert('Login Successful');
                 if(data.status === 'admin'){
                     const path = '/adminlogin/'+data.userid;
-                    window.location.href = 'http://localhost:3000'+path;
+                    window.location.href = `${CLIENT_PATH}`+path;
                     return;
                 }
                 const path = '/userdashboard/'+data.userid;
-                window.location.href = 'http://localhost:3000'+path;
+                window.location.href = `${CLIENT_PATH}`+path;
             }else{
                 alert('Login Failed');
             }

@@ -5,7 +5,7 @@ const Login = require('../models/Login');
 // const config = require('../models/Mailingdetails');
 const jwt = require('jsonwebtoken');
 const send=require('./sendemail');
-
+const{SERVER_PATH,CLIENT_PATH} =require('../path/path');
 
 router.post("/:email",(req,res)=>{
     const email=req.params.email;
@@ -22,7 +22,7 @@ router.post("/:email",(req,res)=>{
                 password: found.password
             };
             const token = jwt.sign(payload, secret, { expiresIn: '15m' });
-            const link = `http://localhost:3000/resetpassword/${token}`;
+            const link = `${CLIENT_PATH}/resetpassword/${token}/${email}`;
             const data = {
                 "from": "vnitnagpuraiims@gmail.com",
                 "to": email,

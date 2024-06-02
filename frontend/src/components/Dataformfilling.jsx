@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from '../componentscss/Dataformfilling.module.css';
 import Drug from './Drug';
+import {SERVER_PATH,CLIENT_PATH} from '../paths/path';;
 
 const Dataformfilling = () => {
     const { id } = useParams();
@@ -110,7 +111,7 @@ const Dataformfilling = () => {
     useEffect(() => {
         const fetchPermission = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/dataformfilling/${id}`);
+                const response = await fetch(`${SERVER_PATH}/dataformfilling/${id}`);
                 if (response.status === 200) {
                     setIsAuthorized(true);
                 } else {
@@ -152,7 +153,7 @@ const Dataformfilling = () => {
         e.preventDefault();
         // console.log(formData)
         try {
-            const response = await fetch(`http://localhost:5000/dataformfilling/${id}`, {
+            const response = await fetch(`${SERVER_PATH}/dataformfilling/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

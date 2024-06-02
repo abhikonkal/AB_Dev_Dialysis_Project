@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from "../componentscss/Tablecomponent.module.css";
 import { Link } from 'react-router-dom';
+import {SERVER_PATH} from '../paths/path';
 
 const Tablecomponent = ({ patients }) => {
   function handleDelete(id) {
     const confirmDelete = window.confirm("Are you sure you want to delete this patient?");
     if (confirmDelete) {
-      fetch(`http://localhost:5000/data/delete/${id}`, {
+      fetch(`${SERVER_PATH}/data/delete/${id}`, {
         method: "GET",
       })
         .then((res) => res.json())

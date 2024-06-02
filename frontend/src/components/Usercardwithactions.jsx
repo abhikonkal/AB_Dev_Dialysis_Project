@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "../componentscss/Adminuiusercard.module.css"
 
+
 const Usercardwithactions = ({ user, onAccept, onReject }) => {
   return (
       <div className={styles.card}>

@@ -3,6 +3,7 @@ const router = express.Router();
 const Login = require('../models/Login');
 //import mailing details
 const send=require('./sendemail');
+const{SERVER_PATH,CLIENT_PATH} =require('../path/path');
 
 router.get("/:id", (req, res) => {
     // console.log("got admin req",req.params.id);
@@ -35,7 +36,7 @@ router.post("/accept/:id", (req, res) => {
     Login.updateOne({ _id: id }, { $set: { permit: true } }).then((found) => {
         if (found) {
             res.send({ "statuscode": 200, "message": "Data Found ", "data": found });
-            const link="http://localhost:3000/userlogin";
+            const link=`${CLIENT_PATH}/userlogin`;
             console.log(found)
             const email=found[0].email;
             console.log(email)

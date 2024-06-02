@@ -4,6 +4,7 @@ import Footer from './Footer';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from '../componentscss/ViewDataform.module.css';
+import {SERVER_PATH} from '../paths/path';
 
 
 const ViewDataform = () => {
@@ -11,7 +12,7 @@ const ViewDataform = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/data/view/${id}`)
+        fetch(`${SERVER_PATH}/data/view/${id}`)
             .then(response => response.json())
             .then(data => {
                 setData(data.data[0]);

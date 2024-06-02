@@ -7,19 +7,20 @@ import Usercardwithactions from './Usercardwithactions'
 import Homedatacard from './homecard'
 import { Link } from 'react-router-dom'
 import styles from "../componentscss/Adminuiusercard.module.css"
+import {SERVER_PATH} from '../paths/path';
 
 const Adminuiusercard = () => {
     const [users, setUsers] = useState([]);
     const  {id} = useParams();
     useEffect(() => {
-        fetch('http://localhost:5000/adminuiusers/'+id, {method: 'GET'})
+        fetch(`${SERVER_PATH}/adminuiusers/${id}`, {method: 'GET'})
             .then(res => res.json())
             .then(data => setUsers(data.data))
     }, [id]);
     console.log(users);
 
     const handleAccept = (userId) => {
-        fetch('http://localhost:5000/adminuiusers/accept/' + userId, { method: 'POST' })
+        fetch(`${SERVER_PATH}/adminuiusers/accept/` + userId, { method: 'POST' })
             .then(res => res.json())
             .then(data => {
                 console.log('User accepted:', data);
@@ -29,7 +30,7 @@ const Adminuiusercard = () => {
     };
 
     const handleReject = (userId) => {
-        fetch('http://localhost:5000/adminuiusers/reject/' + userId, { method: 'POST' })
+        fetch(`${SERVER_PATH}/adminuiusers/reject/` + userId, { method: 'POST' })
             .then(res => res.json())
             .then(data => {
                 console.log('User rejected:', data);

@@ -5,6 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {SERVER_PATH} from '../paths/path';
 
 const Admincontrolpanel = () => {
     const [acceptedUsers, setAcceptedUsers] = useState([]);
@@ -15,7 +16,7 @@ const Admincontrolpanel = () => {
 
     useEffect(() => {
         // Verify admin ID
-        fetch(`http://localhost:5000/admincontrolpanel/verify/${id}`, { method: 'GET' })
+        fetch(`${SERVER_PATH}/admincontrolpanel/verify/${id}`, { method: 'GET' })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -33,12 +34,12 @@ const Admincontrolpanel = () => {
     }, [id]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/admincontrolpanel/accepted/${id}`, { method: 'GET' })
+        fetch(`${SERVER_PATH}/admincontrolpanel/accepted/${id}`, { method: 'GET' })
             .then(res => res.json())
             .then(data => setAcceptedUsers(data.data))
             .catch(error => console.error('Error fetching accepted users:', error));
 
-        fetch(`http://localhost:5000/admincontrolpanel/revoked/${id}`, { method: 'GET' })
+        fetch(`${SERVER_PATH}/admincontrolpanel/revoked/${id}`, { method: 'GET' })
             .then(res => res.json())
             .then(data => setRevokedUsers(data.data))
             .catch(error => console.error('Error fetching revoked users:', error));
@@ -51,7 +52,7 @@ const Admincontrolpanel = () => {
             "status": "revoked",
             "revokedby": id
         }
-        fetch(`http://localhost:5000/admincontrolpanel/revoke/${id}`, {
+        fetch(`${SERVER_PATH}/admincontrolpanel/revoke/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -73,7 +74,7 @@ const Admincontrolpanel = () => {
             "status": "reauthorized",
             "reauthorizedby": id
         }
-        fetch(`http://localhost:5000/admincontrolpanel/reauthorize/${id}`, {
+        fetch(`${SERVER_PATH}/admincontrolpanel/reauthorize/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -98,7 +99,7 @@ const Admincontrolpanel = () => {
             "status": "deleteuser",
             "deleteby": id
         }
-        fetch(`http://localhost:5000/admincontrolpanel/delete/${id}`, {
+        fetch(`${SERVER_PATH}/admincontrolpanel/delete/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
