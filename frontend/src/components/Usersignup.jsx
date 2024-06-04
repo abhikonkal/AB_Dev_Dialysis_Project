@@ -76,7 +76,7 @@ const Usersignup = () => {
                 console.log('Success:', data);
                 if (data.statuscode === 200) {
                     alert('Signup Successful');
-                    const path = '/userlogin/';
+                    const path = '/postsignup';
                     window.location.href = `${CLIENT_PATH}` + path;
                 } 
                 else if (data.statuscode === 201) {

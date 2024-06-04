@@ -33,12 +33,20 @@ router.get("/:id", (req, res) => {
 router.post("/accept/:id", (req, res) => {
     const id = req.params.id;
     console.log("recv",id)
-    Login.updateOne({ _id: id }, { $set: { permit: true } }).then((found) => {
+    Login.findOne({ _id: id }).then((found) => {
         if (found) {
-            res.send({ "statuscode": 200, "message": "Data Found ", "data": found });
+            found.permit = true;
+            found.save().then((saved) => {
+                if (saved) {
+                    res.send({ "statuscode": 200, "message": "Data Found ", "data": saved });
+                }
+                else {
+                    res.send({ "statuscode": 404, "message": "Data Not Found " });
+                }
+            });
             const link=`${CLIENT_PATH}/userlogin`;
             console.log(found)
-            const email=found[0].email;
+            const email=found.email;
             console.log(email)
             const data = {
                 "from": "vnitnagpuraiims@gmail.com",

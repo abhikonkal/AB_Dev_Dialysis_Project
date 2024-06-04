@@ -15,6 +15,7 @@ import Mailsentmsg from './components/Mailsentmsg';
 import Resetpassword from './components/Resetpassword';
 import Adminuiusercard from './components/Adminuiusercard';
 import Admincontrolpanel from './components/Admincontrolpanel';
+import Postsignup from './components/Postsignup';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/forgotpassword-waiting" element={<Mailsentmsg/>}/>
         <Route path="/resetpassword/:token/:email" element={<Resetpassword/>}/>
         <Route path="/signup" element={<Usersignup />} />
+        <Route path="/postsignup" element={<Postsignup />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/userdashboard/:id" element={<Userdashboard/>} />
         <Route path="/dataformfilling/:id" element={<Dataformfilling/>} />
