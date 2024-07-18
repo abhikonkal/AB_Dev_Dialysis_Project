@@ -7,6 +7,7 @@ const prescriptionSchema =new mongoose.Schema({
     DrugFrequency: { type: String },
     DrugDose: { type: Number },
     DrugStartDate: { type: String },
+    DrugOtherInstructions: { type: String },
 });
 
 
@@ -17,7 +18,7 @@ const dataCollectionSchema = ({
     age: { type: Number },
     crno: { type: Number },
     gender: { type: String },
-    race: { type: String, default: "Indian" },
+    race: { type: String },
     height: { type: Number },
     datinithemodia: { type: String },
     sessiondate: { type: String },
@@ -43,12 +44,12 @@ const dataCollectionSchema = ({
     // clinical prescription
     ClinicalPrescriptions: [prescriptionSchema],
     // Clinical Evaluation Details
-    Pulmonarycongestion: { type: String },
-    PleuralEffusion: { type: String },
-    OxygenAdminsitration: { type: String },
-    Edema: { type: String },
-    PreDialyticHypotension: { type: String },
-    PreDialyticHypertension: { type: String },
+    Pulmonarycongestion: { type: String,default:"N/A" },
+    PleuralEffusion: { type: String,default:"N/A"  },
+    OxygenAdminsitration: { type: String ,default:"N/A" },
+    Edema: { type: String ,default:"N/A" },
+    PreDialyticHypotension: { type: String ,default:"N/A" },
+    PreDialyticHypertension: { type: String ,default:"N/A" },
     // Dialysis Record
     DialysisSessionKtvAchieved: { type: Number },
     FrequencyOfDialysis: { type: String },
@@ -70,11 +71,11 @@ const dataCollectionSchema = ({
     PulseRate: { type: Number },
     BodyTemp: { type: Number },
     OxygenSaturation: { type: Number },
-    IntradialyticHypertension: { type: String },
-    Nausea: { type: String },
-    Vomiting: { type: String },
-    Headache: { type: String },
-    MuscleCramps: { type: String },
+    IntradialyticHypertension: { type: String,default:"N/A"  },
+    Nausea: { type: String ,default:"N/A" },
+    Vomiting: { type: String,default:"N/A"  },
+    Headache: { type: String,default:"N/A"  },
+    MuscleCramps: { type: String ,default:"N/A" },
     OtherComplication: { type: String },
     // ECHO Cardiographic Evaluation
     AorticRootdiameter: { type: Number },

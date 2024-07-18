@@ -120,7 +120,7 @@ const Usersignup = () => {
                             <input type="password" id="retypepassword" name="retypepassword" value={formValues.retypepassword} onChange={handleChange} required />
                             {formErrors.retypepassword && <p className={styles.error}>{formErrors.retypepassword}</p>}
                         </div>
-                        <button type="submit">Sign Up</button>
+                        <button className={styles.usersignupbtn} type="submit">Sign Up</button>
                     </form>
                     <div className={styles.additionallinks}>
                         <a href="/forgotpassword">Forgot Password?</a>

@@ -1,6 +1,7 @@
 .parenttable{
-    width: 100%;
+    width: 95%;
     border-collapse: collapse;
+    justify-content: baseline;
     margin: 2rem;
 }
 
@@ -9,6 +10,18 @@
   display: flex;
   justify-content: center;
   padding: 2rem;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 80%;
 }
 
 .patienttable {
@@ -75,3 +88,25 @@
   justify-content: center;
   margin-top: 20px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1px;
+  color: #ccc;
+}
+
+.pagination button {
+  margin: 1px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.pagination .activePage {
+  background-color: #4CAF50;
+  color: #fff;
+}
+

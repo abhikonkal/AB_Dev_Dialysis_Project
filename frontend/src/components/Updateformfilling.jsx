@@ -126,7 +126,8 @@ const Updateformfilling = () => {
     // console.log("hform", formData);
 
 
-    const handleAddDrug = () => {
+    const handleAddDrug = (e) => {
+        e.preventDefault();
         setNumDrugs(numDrugs + 1); // Increment the number of drugs
     };
 
@@ -191,27 +192,29 @@ const Updateformfilling = () => {
                 <form className={styles.signinform} onSubmit={handleSubmit}>
                     <h2>Welcome, Please fill the below form</h2>
 
-                    <label htmlFor="name">Name</label>
-                    <input type="text" required id="name" name="name" value={formData.name} onChange={handleChange} autoFocus />
+                    <label htmlFor="name">Name <span className={styles.requiredmark}>*</span></label>
+                    <input type="text" required  id="name" name="name" value={formData.name} onChange={handleChange} autoFocus />
 
-                    <label htmlFor="age">Age</label>
-                    <input type="number" required id="age" name="age" value={formData.age} onChange={handleChange} />
+                    <label htmlFor="age">Age <span className={styles.requiredmark}>*</span></label>
+                    <input type="number" required  id="age" name="age" value={formData.age} onChange={handleChange} />
 
-                    <label htmlFor="crNum">CR No.</label>
-                    <input type="number" required id="crNum" name="crno" value={formData.crno} onChange={handleChange} />
+                    <label htmlFor="crNum">CR No. <span className={styles.requiredmark}>*</span> </label>
+                    <input type="number" required  id="crNum" name="crno" value={formData.crno} onChange={handleChange} />
 
-                    <label htmlFor="gender">Gender</label>
-                    <select name="gender" id="gender" value={formData.gender} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="gender">Gender <span className={styles.requiredmark}>*</span></label>
+                    <select name="gender" id="gender" value={formData.gender} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Male" id="Male">Male</option>
                         <option value="Female" id="Female">Female</option>
                         <option value="Transgender" id="Transgender">Transgender</option>
                     </select>
 
                     <br />
-                    <label className={styles.attselect}>Race</label>
-                    <select name="race" id="race" value={formData.race} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label className={styles.attselect}>Race <span className={styles.requiredmark}>*</span></label>
+                    <select name="race" id="race" value={formData.race} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Indian" id="Indian">Indian</option>
                         <option value="American Indian">American Indian</option>
                         <option value="Alaskan Native">Alaskan Native</option>
@@ -225,8 +228,8 @@ const Updateformfilling = () => {
                         <option value="white" id="white">White</option>
                     </select>
 
-                    <label htmlFor="height">Height (in cm)</label>
-                    <input name="height" type="number" id="height" value={formData.height} onChange={handleChange} required />
+                    <label htmlFor="height">Height (in cm) <span className={styles.requiredmark}>*</span></label>
+                    <input name="height" type="number" id="height" value={formData.height} onChange={handleChange} required  />
 
                     <label htmlFor="DOI">Date of initiation of hemodialysis</label>
                     <input type="date" name="datinithemodia" id="DOI" value={formData.datinithemodia} onChange={handleChange} />
@@ -293,53 +296,59 @@ const Updateformfilling = () => {
                     {[...Array(numDrugs)].map((_, index) => ( // Render Drug components based on numDrugs
                         <Drug key={index} formData={formData} setFormData={setFormData} index={index} count={numDrugs - 1} />
                     ))}
-                    <div className={styles.adddrugbtn}>
-                        <button onClick={handleAddDrug}>Add Drug</button>
-                    </div>
+                    
+                    <button className={styles.adddrugbtn} onClick={handleAddDrug}>Add Drug</button>
+                    
 
-                    <h2>Clinical EValuation Details</h2>
+                    <h2>Clinical EValuation Details <span className={styles.requiredmark}>*</span></h2>
                     <label htmlFor="Pulmonarycongestion">Pulmonary congestion</label>
-                    <select name="Pulmonarycongestion" id="Pulmonarycongestion" value={formData.Pulmonarycongestion} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <select name="Pulmonarycongestion" id="Pulmonarycongestion" value={formData.Pulmonarycongestion} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
-                    <label htmlFor="PleuralEffusion">Pleural effusion</label>
-                    <select name="PleuralEffusion" id="PleuralEffusion" value={formData.PleuralEffusion} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="PleuralEffusion">Pleural effusion <span className={styles.requiredmark}>*</span></label>
+                    <select name="PleuralEffusion" id="PleuralEffusion" value={formData.PleuralEffusion} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
 
                     <label htmlFor="OxygenAdminsitration">Oxygen administration</label>
-                    <select name="OxygenAdminsitration" id="OxygenAdminsitration" value={formData.OxygenAdminsitration} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <select name="OxygenAdminsitration" id="OxygenAdminsitration" value={formData.OxygenAdminsitration} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
 
-                    <label htmlFor="Edema">Edema</label>
-                    <select name="Edema" id="Edema" value={formData.Edema} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="Edema">Edema <span className={styles.requiredmark}>*</span></label>
+                    <select name="Edema" id="Edema" value={formData.Edema} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
 
-                    <label htmlFor="PreDialyticHypotension">Pre-dialytic hypotension</label>
-                    <select name='PreDialyticHypotension' id='PreDialyticHypotension' value={formData.PreDialyticHypotension} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="PreDialyticHypotension">Pre-dialytic hypotension <span className={styles.requiredmark}>*</span></label>
+                    <select name='PreDialyticHypotension' id='PreDialyticHypotension' value={formData.PreDialyticHypotension} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
 
-                    <label htmlFor="PreDialyticHypertension">Pre-dialytic hypertension</label>
-                    <select name='PreDialyticHypertension' id='PreDialyticHypertension' value={formData.PreDialyticHypertension} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="PreDialyticHypertension">Pre-dialytic hypertension <span className={styles.requiredmark}>*</span></label>
+                    <select name='PreDialyticHypertension' id='PreDialyticHypertension' value={formData.PreDialyticHypertension} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
@@ -348,7 +357,8 @@ const Updateformfilling = () => {
                     <h2>Details of dialysis Record</h2>
                     <label htmlFor="FrequencyOfDialysis">Frequency of dialysis</label>
                     <select name='FrequencyOfDialysis' id="FrequencyOfDialysis" value={formData.FrequencyOfDialysis} onChange={handleChange}>
-                        <option value="N/A" id="N/A">---</option>
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Daily" id="Daily">Daily</option>
                         <option value="Alternate days" id="Alternate days">Alternate days</option>
                         <option value="Twice a week" id="Twice a week">Twice a week</option>
@@ -413,42 +423,47 @@ const Updateformfilling = () => {
                     <label htmlFor="OxygenSaturation">Oxygen saturation</label>
                     <input type="number" step="0.01" name="OxygenSaturation" id="OxygenSaturation" value={formData.OxygenSaturation} onChange={handleChange} />
 
-                    <label htmlFor="IntradialyticHypertension">Intradialytic hypertension</label>
-                    <select name="IntradialyticHypertension" id="IntradialyticHypertension" value={formData.IntradialyticHypertension} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="IntradialyticHypertension">Intradialytic hypertension <span className={styles.requiredmark}>*</span></label>
+                    <select name="IntradialyticHypertension" id="IntradialyticHypertension" value={formData.IntradialyticHypertension} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
-                    <label htmlFor="Nausea">Nausea</label>
-                    <select name="Nausea" id="Nausea" value={formData.Nausea} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="Nausea">Nausea <span className={styles.requiredmark}>*</span></label>
+                    <select name="Nausea" id="Nausea" value={formData.Nausea} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
-                    <label htmlFor="Vomiting">Vomiting</label>
-                    <select name="Vomiting" id="Vomiting" value={formData.Vomiting} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="Vomiting">Vomiting <span className={styles.requiredmark}>*</span></label>
+                    <select name="Vomiting" id="Vomiting" value={formData.Vomiting} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
-                    <label htmlFor="Headache">Headache</label>
-                    <select name="Headache" id="Headache" value={formData.Headache} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="Headache">Headache <span className={styles.requiredmark}>*</span></label>
+                    <select name="Headache" id="Headache" value={formData.Headache} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
-                    <label htmlFor="MuscleCramps">Muscle cramps</label>
-                    <select name="MuscleCramps" id="MuscleCramps" value={formData.MuscleCramps} onChange={handleChange} required>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="MuscleCramps">Muscle cramps <span className={styles.requiredmark}>*</span></label>
+                    <select name="MuscleCramps" id="MuscleCramps" value={formData.MuscleCramps} onChange={handleChange} required >
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                         <option value="No" id="No">No</option>
                     </select>
 
-                    <label htmlFor="OtherComplication">Other complication</label>
+                    <label htmlFor="OtherComplication">Other complication </label>
                     <input type="text" name="OtherComplication" id="OtherComplication" value={formData.OtherComplication} onChange={handleChange} />
 
                     <h2>Echocardiography</h2>
@@ -527,32 +542,34 @@ const Updateformfilling = () => {
                     <input type="number" step="0.01" name="DryWeight" id="DryWeight" value={formData.DryWeight} onChange={handleChange} />
 
                     <h2>Vascular Access</h2>
-                    <label htmlFor="VascularAccess">Vascular Access</label>
-                    <select name="VascularAccess" id="VascularAccess" value={formData.VascularAccess} onChange={handleChange} required multiple>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="VascularAccess">Vascular Access <span className={styles.requiredmark}>*</span></label>
+                    <select name="VascularAccess" id="VascularAccess" value={formData.VascularAccess} onChange={handleChange} required  multiple>
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="Fistula" id="Fistula">Fistula</option>
                         <option value="Graft" id="Graft">Graft</option>
                         <option value="Catheter" id="Catheter">Catheter</option>
                     </select>
 
                     <h2>Serostatus</h2>
-                    <label htmlFor="Serostatus">Serostatus</label>
-                    <select name="Serostatus" id="Serostatus" value={formData.Serostatus} onChange={handleChange} required multiple>
-                        <option value="N/A" id="N/A">---</option>
+                    <label htmlFor="Serostatus">Serostatus <span className={styles.requiredmark}>*</span></label>
+                    <select name="Serostatus" id="Serostatus" value={formData.Serostatus} onChange={handleChange} required  multiple>
+                        <option value="Not selected" id="Not selected">Please Select</option>
+                        <option value="N/A" id="N/A">N/A</option>
                         <option value="HBsAg" id="HBsAg">HBsAg</option>
                         <option value="HCV" id="HCV">HCV</option>
                         <option value="HIV" id="HIV">HIV</option>
                     </select>
 
                     <h2>Final select!!Please select Yes after completing all your updates</h2>
-                    <label htmlFor="finalselect">finalselect</label>
-                    <select name="finalselect" id="finalselect" required>
-                        <option value="" disabled selected>---</option>
+                    <label htmlFor="finalselect">finalselect <span className={styles.requiredmark}>*</span></label>
+                    <select name="finalselect" id="finalselect" required >
+                        <option value="" disabled selected>N/A</option>
                         <option value="Yes" id="Yes">Yes</option>
                     </select>
-                    <div className={styles.submitbutton}>
-                        <button type="submit">Submit</button>
-                    </div>
+                    
+                        <button  className={styles.submitbutton} type="submit">Submit</button>
+                    
 
                 </form>
             </div>

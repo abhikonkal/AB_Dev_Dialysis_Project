@@ -2,6 +2,7 @@ import React from 'react';
 
 const Drug = ({ formData, setFormData, index }) => {
     const handleChange = (e) => {
+        
         // console.log(formData.ClinicalPrescriptions)
         const { name, value } = e.target;
         
@@ -45,6 +46,10 @@ const Drug = ({ formData, setFormData, index }) => {
 
             <label htmlFor={`DrugStartDate-${index}`}>Drug Start Date</label>
             <input type="date" name="DrugStartDate" id={`DrugStartDate-${index}`} value={formData.ClinicalPrescriptions[index]?.DrugStartDate || ''} onChange={handleChange} />
+
+            <label htmlFor={`DrugOtherInstructions-${index}`}>Other Instructions</label>
+            <input type="text" name="DrugOtherInstructions" id={`DrugOtherInstructions-${index}`} value={formData.ClinicalPrescriptions[index]?.DrugOtherInstructions || ''} onChange={handleChange} />
+
         </div>
     );
 };
